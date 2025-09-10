@@ -10,6 +10,7 @@
       color: #fff;
       background: #000;
       overflow-x: hidden;
+      overflow-y: hidden; /* 스크롤바 흔들림 방지 */
     }
 
     /* 배경 */
@@ -33,17 +34,23 @@
       background: rgba(0,0,0,0.7);
       padding: 15px 30px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      position: relative;
       z-index: 10;
     }
     .navbar .logo {
       font-size: 22px;
       color: #ffd700;
       font-weight: bold;
+      text-shadow: 1px 1px 3px #000;
+    }
+    .navbar .menu {
+      flex: 1;
+      display: flex;
+      justify-content: center; /* 가운데 정렬 */
+      gap: 30px;
     }
     .navbar .menu a {
-      margin-left: 20px;
       color: #ffd700;
       text-decoration: none;
       font-size: 14px;
@@ -63,7 +70,7 @@
     /* 히어로 */
     .hero {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       max-width: 1200px;
       margin: 0 auto;
@@ -84,6 +91,7 @@
       font-size: 28px;
       color: #fff;
       margin-bottom: 30px;
+      text-shadow: 1px 1px 0 #000;
     }
 
     .btn {
@@ -108,6 +116,7 @@
       margin: 10px 0;
       font-size: 18px;
       color: #ffd700;
+      text-shadow: 1px 1px 0 #000;
     }
 
     /* 영상 */
@@ -190,7 +199,7 @@
 
   <script>
     // 카운트다운
-    const targetDate = new Date("2025-12-31 00:00:00").getTime();
+    const targetDate = new Date("2025-9-20 00:00:00").getTime();
     const countdownEl = document.getElementById("countdown");
 
     setInterval(() => {
