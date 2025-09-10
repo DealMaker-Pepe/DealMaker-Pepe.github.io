@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>DealMaker-Pepe – Live on Pump.fun</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       margin: 0;
@@ -32,8 +33,9 @@
     .navbar {
       width: 100%;
       background: rgba(0,0,0,0.7);
-      padding: 15px 30px;
+      padding: 15px 20px;
       display: flex;
+      justify-content: space-between;
       align-items: center;
       position: relative;
       z-index: 10;
@@ -44,9 +46,7 @@
       font-weight: bold;
     }
     .navbar .menu {
-      flex: 1;
       display: flex;
-      justify-content: center;
       gap: 30px;
     }
     .navbar .menu a {
@@ -56,6 +56,38 @@
       transition: 0.3s;
     }
     .navbar .menu a:hover { color: #fff; }
+
+    /* 햄버거 버튼 */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: #ffd700;
+    }
+
+    /* 모바일 메뉴 (숨김) */
+    .menu-mobile {
+      display: none;
+      flex-direction: column;
+      background: rgba(0,0,0,0.9);
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+    }
+    .menu-mobile a {
+      color: #ffd700;
+      text-decoration: none;
+      font-size: 18px;
+      margin: 10px 0;
+      text-align: center;
+    }
 
     /* Hero */
     .hero {
@@ -129,6 +161,32 @@
       0% { transform: translateY(-50px) rotate(0deg); }
       100% { transform: translateY(110vh) rotate(360deg); }
     }
+
+    /* 반응형 */
+    @media (max-width: 768px) {
+      .navbar .menu {
+        display: none; /* 기본 메뉴 숨김 */
+      }
+      .hamburger {
+        display: flex;
+      }
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-text h1 { font-size: 36px; }
+      .hero-text p { font-size: 16px; }
+      .btn {
+        display: block;
+        width: 100%;
+        max-width: 250px;
+        margin: 10px auto;
+      }
+      .video-box video {
+        max-width: 100%;
+        height: auto;
+      }
+    }
   </style>
 </head>
 <body>
@@ -141,9 +199,21 @@
     <div class="menu">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
-      <a href="tokenomics.html">Tokenomics</a>
       <a href="community.html">Community</a>
     </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <!-- 모바일 메뉴 -->
+  <div class="menu-mobile" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="tokenomics.html">Tokenomics</a>
+    <a href="community.html">Community</a>
   </div>
 
   <!-- Hero -->
@@ -156,8 +226,8 @@
         Join the movement today.
       </p>
       <div>
-        <a href="" target="_blank"><button class="btn">Buy on Pump.fun</button></a>
-        <a href="" target="_blank"><button class="btn">Chart</button></a>
+        <a href="https://pump.fun/coin/FdK7FQP4wt9KuLYw7s89eVvykQSsHNiGwSLq3ydZoYpPpump" target="_blank"><button class="btn">Buy on Pump.fun</button></a>
+        <a href="https://pump.fun/coin/FdK7FQP4wt9KuLYw7s89eVvykQSsHNiGwSLq3ydZoYpPpump" target="_blank"><button class="btn">Chart</button></a>
         <a href="https://x.com/dealmakerpepe" target="_blank"><button class="btn">Twitter</button></a>
       </div>
     </div>
@@ -170,6 +240,12 @@
   <footer>&copy; 2025 DealMaker-Pepe Project. All Rights Reserved.</footer>
 
   <script>
+    // 모바일 메뉴 토글
+    function toggleMenu() {
+      const menu = document.getElementById("mobileMenu");
+      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+    }
+
     // 코인 애니메이션
     const numCoins = 30;
     for (let i = 0; i < numCoins; i++) {
