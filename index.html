@@ -1,11 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>웹 호스팅</title>
+  <meta charset="UTF-8">
+  <title>Coming Soon</title>
+  <style>
+    body {
+      margin: 0;
+      background: #111;
+      color: #fff;
+      font-family: "Press Start 2P", monospace;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 32px;
+      text-shadow: 2px 2px #ff0066, -2px -2px #00ffff;
+      animation: blink 1.2s infinite alternate;
+    }
+
+    @keyframes blink {
+      from { opacity: 1; }
+      to { opacity: 0.6; }
+    }
+
+    .pixel-box {
+      border: 4px solid #fff;
+      padding: 12px;
+      margin: 20px 0;
+      image-rendering: pixelated;
+      background: #000;
+      box-shadow: 0 0 20px #ff00ff;
+    }
+
+    img, video {
+      max-width: 320px;
+      height: auto;
+      display: block;
+      image-rendering: pixelated;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 12px;
+      opacity: 0.8;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    git pages 입니다.
+  <h1>COMING SOON...</h1>
+
+  <div class="pixel-box">
+    <img src="your-image.png" alt="Teaser Image">
+  </div>
+
+  <div class="pixel-box">
+    <video src="your-video.mp4" autoplay loop muted></video>
+  </div>
+
+  <footer>
+    &copy; 2025 Pepe Project. All Rights Reserved.
+  </footer>
 </body>
 </html>
