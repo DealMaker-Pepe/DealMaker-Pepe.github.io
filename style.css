@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+  font-family: "Arial Black", sans-serif;
+  color: #fff;
+  background: #000;
+  overflow-x: hidden;
+}
+
+/* 배경 */
+.background-img {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('u6643972535_A_cartoon_character_of_Pepe_the_Frog_styled_as_a__8c73e6de-2022-4015-a2bd-788fb9b1b1b9_0.png') no-repeat center center/cover;
+  filter: blur(25px) brightness(0.5);
+  z-index: -2;
+}
+.overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: -1;
+}
+
+/* 네비게이션 */
+.navbar {
+  width: 100%;
+  background: rgba(0,0,0,0.7);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+.navbar .logo {
+  font-size: 22px;
+  color: #ffd700;
+  font-weight: bold;
+}
+.navbar .menu a {
+  margin-left: 20px;
+  color: #ffd700;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+.navbar .menu a:hover { color: #fff; }
+
+/* 컨텐츠 */
+.content {
+  max-width: 1000px;
+  margin: 100px auto 40px auto;
+  padding: 20px;
+  background: rgba(0,0,0,0.5);
+  border: 2px solid #ffd700;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255,215,0,0.6);
+}
+.content h1 {
+  font-size: 42px;
+  color: #ffd700;
+  text-shadow: 2px 2px 0 #000;
+}
+.content p, .content ul {
+  font-size: 18px;
+  line-height: 1.6;
+}
+.content ul li {
+  margin-bottom: 10px;
+}
+
+/* 푸터 */
+footer {
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.8;
+  color: #ffec8b;
+  margin: 30px 0;
+}
+
+/* 코인 */
+.coin {
+  position: absolute;
+  top: -50px;
+  width: 40px;
+  height: 40px;
+  background: url('vecteezy_3d-gold-coin-no-background_32161163.png') no-repeat center/contain;
+  animation: fall linear infinite;
+}
+@keyframes fall {
+  0% { transform: translateY(-50px) rotate(0deg); }
+  100% { transform: translateY(110vh) rotate(360deg); }
+}
