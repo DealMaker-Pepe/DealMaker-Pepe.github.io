@@ -8,24 +8,22 @@
       margin: 0;
       font-family: "Arial Black", sans-serif;
       color: #fff;
-      overflow: hidden;
       background: #000;
+      overflow-x: hidden;
     }
 
-    /* 흐린 배경 이미지 */
+    /* 배경 */
     .background-img {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
       background: url('u6643972535_A_cartoon_character_of_Pepe_the_Frog_styled_as_a__8c73e6de-2022-4015-a2bd-788fb9b1b1b9_0.png') no-repeat center center/cover;
-      filter: blur(20px) brightness(0.5);
+      filter: blur(25px) brightness(0.5);
       z-index: -2;
     }
-
-    /* 반투명 오버레이 */
     .overlay {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.5);
+      background: rgba(0,0,0,0.6);
       z-index: -1;
     }
 
@@ -37,79 +35,21 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: relative;
       z-index: 10;
     }
     .navbar .logo {
       font-size: 22px;
       color: #ffd700;
       font-weight: bold;
-      text-shadow: 1px 1px 3px #000;
     }
     .navbar .menu a {
       margin-left: 20px;
       color: #ffd700;
       text-decoration: none;
       font-size: 14px;
-      text-shadow: 1px 1px 2px #000;
       transition: 0.3s;
     }
     .navbar .menu a:hover { color: #fff; }
-
-    /* 히어로 */
-    .hero {
-      text-align: center;
-      margin-top: 60px;
-      position: relative;
-      z-index: 10;
-    }
-    .hero h1 {
-      font-size: 60px;
-      color: #ffd700;
-      text-shadow: 3px 3px 0 #000, -3px -3px 0 #000, 0 0 25px #ffec8b;
-      margin-bottom: 10px;
-    }
-    .hero h2 {
-      font-size: 28px;
-      color: #fff;
-      text-shadow: 1px 1px 0 #000;
-      margin-bottom: 30px;
-    }
-
-    /* 버튼 */
-    .buttons {
-      margin: 20px 0;
-    }
-    .btn {
-      background: linear-gradient(45deg, #ffd700, #ffae00);
-      border: none;
-      padding: 14px 28px;
-      margin: 10px;
-      border-radius: 8px;
-      font-size: 16px;
-      color: #000;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 0 15px rgba(255,215,0,0.8);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px rgba(255,215,0,1);
-    }
-
-    /* 영상 */
-    .video-box {
-      display: flex;
-      justify-content: center;
-      margin: 30px 0;
-    }
-    .video-box video {
-      max-width: 600px;
-      border: 6px solid #ffd700;
-      border-radius: 12px;
-      box-shadow: 0 0 40px rgba(255,215,0,0.9);
-    }
 
     /* 카운트다운 */
     #countdown {
@@ -117,31 +57,89 @@
       color: #ffd700;
       text-align: center;
       margin: 20px 0;
-      text-shadow: 1px 1px 0 #000, 0 0 10px #ffec8b;
+      text-shadow: 2px 2px 0 #000, 0 0 15px #ffec8b;
+    }
+
+    /* 히어로 */
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      gap: 50px;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+    .hero-text h1 {
+      font-size: 64px;
+      color: #ffd700;
+      text-shadow: 3px 3px 0 #000, -3px -3px 0 #000, 0 0 25px #ffec8b;
+      margin-bottom: 20px;
+    }
+    .hero-text h2 {
+      font-size: 28px;
+      color: #fff;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      background: linear-gradient(45deg, #ffd700, #ffae00);
+      border: none;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 16px;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(255,215,0,0.8);
+      margin-bottom: 20px;
+    }
+    .btn:hover { transform: scale(1.05); }
+
+    .trust {
+      list-style: none;
+      padding: 0;
+    }
+    .trust li {
+      margin: 10px 0;
+      font-size: 18px;
+      color: #ffd700;
+    }
+
+    /* 영상 */
+    .video-box {
+      flex: 1;
+      text-align: right;
+    }
+    .video-box video {
+      max-width: 450px;
+      border: 6px solid #ffd700;
+      border-radius: 12px;
+      box-shadow: 0 0 40px rgba(255,215,0,0.9);
+      transform: scaleX(-1);
     }
 
     /* 푸터 */
     footer {
-      position: absolute;
-      bottom: 20px;
-      width: 100%;
       text-align: center;
       font-size: 14px;
       opacity: 0.8;
       color: #ffec8b;
+      margin: 30px 0;
     }
 
-    /* CSS 코인 */
+    /* 코인 */
     .coin {
       position: absolute;
       top: -50px;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, #fff, #ffd700 40%, #b8860b 90%);
-      box-shadow: 0 0 10px rgba(255,215,0,0.8);
+      width: 40px;
+      height: 40px;
+      background: url('vecteezy_3d-gold-coin-no-background_32161163.png') no-repeat center/contain;
       animation: fall linear infinite;
-      z-index: 0;
     }
     @keyframes fall {
       0% { transform: translateY(-50px) rotate(0deg); }
@@ -157,59 +155,57 @@
   <div class="navbar">
     <div class="logo">DealMaker-Pepe</div>
     <div class="menu">
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Tokenomics</a>
-      <a href="#">Community</a>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="tokenomics.html">Tokenomics</a>
+      <a href="community.html">Community</a>
     </div>
   </div>
 
-  <!-- 메인 히어로 -->
+  <!-- 카운트다운 -->
+  <div id="countdown">Launching Soon...</div>
+
+  <!-- 히어로 -->
   <div class="hero">
-    <h1>COMING SOON</h1>
-    <h2>The Rise of DealMaker-Pepe</h2>
-
-    <div class="buttons">
-      <button class="btn">Join Telegram</button>
-      <button class="btn">View Whitepaper</button>
-      <button class="btn">Follow on Twitter</button>
+    <div class="hero-text">
+      <h1>COMING SOON</h1>
+      <h2>The Rise of DealMaker-Pepe</h2>
+      <a href="https://x.com/dealmakerpepe" target="_blank">
+        <button class="btn">Follow on Twitter</button>
+      </a>
+      <ul class="trust">
+        <li>✅ Audited by Trusted Partners</li>
+        <li>✅ Backed by Strong Community</li>
+        <li>✅ Fair Launch – No Presale</li>
+        <li>✅ 100% Transparency</li>
+      </ul>
     </div>
-
     <div class="video-box">
       <video src="u6643972535_A_cartoon_character_of_Pepe_the_Frog_styled_as_a__7d76709d-ed3d-49c0-8c6d-d1faf38bea6c_0.mp4" autoplay loop muted></video>
     </div>
-
-    <div id="countdown">Launching Soon...</div>
   </div>
 
   <!-- 푸터 -->
   <footer>&copy; 2025 DealMaker-Pepe Project. All Rights Reserved.</footer>
 
-  <!-- 코인 애니메이션 -->
   <script>
-    // 카운트다운 날짜 설정
+    // 카운트다운
     const targetDate = new Date("2025-12-31 00:00:00").getTime();
     const countdownEl = document.getElementById("countdown");
 
     setInterval(() => {
       const now = new Date().getTime();
       const distance = targetDate - now;
-
-      if (distance < 0) {
-        countdownEl.innerHTML = "Launched!";
-        return;
-      }
-
+      if (distance < 0) { countdownEl.innerHTML = "Launched!"; return; }
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
       countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
     }, 1000);
 
     // 코인 떨어뜨리기
-    const numCoins = 40;
+    const numCoins = 30;
     for (let i = 0; i < numCoins; i++) {
       const coin = document.createElement("div");
       coin.className = "coin";
