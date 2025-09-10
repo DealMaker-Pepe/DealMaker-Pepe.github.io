@@ -6,83 +6,80 @@
   <style>
     body {
       margin: 0;
-      background: radial-gradient(circle at center, #ffd700, #b8860b, #000);
-      overflow: hidden;
       font-family: "Arial Black", sans-serif;
       color: #fff;
+      overflow: hidden;
+      background: #000;
+    }
+
+    /* 흐린 배경 이미지 */
+    .background-img {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('u6643972535_A_cartoon_character_of_Pepe_the_Frog_styled_as_a__8c73e6de-2022-4015-a2bd-788fb9b1b1b9_0.png') no-repeat center center/cover;
+      filter: blur(20px) brightness(0.5);
+      z-index: -2;
+    }
+
+    /* 반투명 오버레이 */
+    .overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: -1;
+    }
+
+    /* 타이틀 */
+    h1 {
+      font-size: 60px;
+      color: #ffd700;
+      text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 0 0 20px #ffec8b;
+      margin-top: 60px;
       text-align: center;
     }
 
-    /* 상단 네비게이션 */
-    .navbar {
-      width: 100%;
-      background: rgba(0,0,0,0.6);
-      padding: 16px 30px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.6);
+    /* 서브타이틀 */
+    h2 {
+      font-size: 28px;
+      color: #fff;
+      text-shadow: 1px 1px 0 #000;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    /* 영상 */
+    .video-box {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: relative;
-      z-index: 10;
-    }
-    .navbar .logo { font-size: 22px; color: gold; font-weight: bold; }
-    .navbar .menu a {
-      margin-left: 20px;
-      color: #ffd700;
-      text-decoration: none;
-      font-size: 14px;
-      text-shadow: 0 0 5px #ffec8b;
-      transition: 0.3s;
-    }
-    .navbar .menu a:hover { color: #fff; }
-
-    /* 히어로 영역 */
-    .hero {
-      text-align: center;
-      position: relative;
-      z-index: 10;
-      padding-top: 100px;
-    }
-    .hero h1 {
-      font-size: 56px;
-      color: #ffd700;
-      text-shadow: 0 0 10px #fff, 0 0 30px #ffec8b, 0 0 60px #ffb700;
-      animation: glow 2s infinite alternate;
+      justify-content: center;
       margin-bottom: 30px;
     }
-    @keyframes glow {
-      from { text-shadow: 0 0 5px #fff, 0 0 20px #ffd700, 0 0 40px #ffb700; }
-      to { text-shadow: 0 0 20px #fff, 0 0 40px #ffd700, 0 0 80px #ffa500; }
-    }
-
-    /* 미디어 박스 */
-    .gold-frame {
-      display: inline-block;
-      margin: 20px;
-      padding: 15px;
-      border: 5px solid #ffd700;
+    .video-box video {
+      max-width: 600px;
+      border: 6px solid #ffd700;
       border-radius: 12px;
-      box-shadow: 0 0 30px rgba(255,215,0,0.8), inset 0 0 15px rgba(255,215,0,0.5);
-      background: rgba(0,0,0,0.6);
-    }
-    .gold-frame img, .gold-frame video {
-      max-width: 360px;
-      border-radius: 8px;
-      display: block;
+      box-shadow: 0 0 40px rgba(255,215,0,0.9);
     }
 
-    /* 푸터 */
+    /* 카운트다운 */
+    #countdown {
+      font-size: 28px;
+      color: #ffd700;
+      text-align: center;
+      margin: 30px 0;
+      text-shadow: 1px 1px 0 #000, 0 0 10px #ffec8b;
+    }
+
     footer {
       position: absolute;
-      bottom: 10px;
+      bottom: 20px;
       width: 100%;
-      font-size: 12px;
-      opacity: 0.8;
       text-align: center;
+      font-size: 14px;
+      opacity: 0.8;
       color: #ffec8b;
     }
 
-    /* 코인 떨어지기 */
+    /* 코인 애니메이션 */
     .coin {
       position: absolute;
       top: -50px;
@@ -91,6 +88,7 @@
       background: url('https://i.ibb.co/VtZjSxv/pixel-coin.png') no-repeat center/contain;
       animation: fall linear infinite;
       opacity: 0.9;
+      z-index: 0;
     }
     @keyframes fall {
       0% { transform: translateY(-50px) rotate(0deg); }
@@ -99,38 +97,49 @@
   </style>
 </head>
 <body>
-  <!-- 네비게이션 -->
-  <div class="navbar">
-    <div class="logo">MemeCoin</div>
-    <div class="menu">
-      <a href="#">Home</a>
-      <a href="#">Docs</a>
-      <a href="#">Community</a>
-    </div>
+  <div class="background-img"></div>
+  <div class="overlay"></div>
+
+  <h1>COMING SOON</h1>
+  <h2>DealMaker-Pepe</h2>
+
+  <div class="video-box">
+    <video src="u6643972535_A_cartoon_character_of_Pepe_the_Frog_styled_as_a__7d76709d-ed3d-49c0-8c6d-d1faf38bea6c_0.mp4" autoplay loop muted></video>
   </div>
 
-  <!-- 메인 히어로 -->
-  <div class="hero">
-    <h1>COMING SOON</h1>
-    <div class="gold-frame">
-      <img src="u6643972535_A_cartoon_character_of_Pepe_the_Frog_styled_as_a__8c73e6de-2022-4015-a2bd-788fb9b1b1b9_0.png" alt="Pepe Character">
-    </div>
-    <div class="gold-frame">
-      <video src="u6643972535_A_cartoon_character_of_Pepe_the_Frog_styled_as_a__7d76709d-ed3d-49c0-8c6d-d1faf38bea6c_0.mp4" autoplay loop muted></video>
-    </div>
-  </div>
+  <div id="countdown">Launching Soon...</div>
 
-  <!-- 푸터 -->
-  <footer>&copy; 2025 MemeCoin Project</footer>
+  <footer>&copy; 2025 DealMaker-Pepe Project. All Rights Reserved.</footer>
 
-  <!-- 코인 떨어지는 효과 -->
   <script>
-    const numCoins = 25;
+    // 카운트다운 (목표 날짜 설정)
+    const targetDate = new Date("2025-12-31 00:00:00").getTime();
+    const countdownEl = document.getElementById("countdown");
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        countdownEl.innerHTML = "Launched!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+
+    // 코인 애니메이션 생성
+    const numCoins = 40;
     for (let i = 0; i < numCoins; i++) {
-      const coin = document.createElement('div');
-      coin.className = 'coin';
-      coin.style.left = Math.random() * 100 + 'vw';
-      coin.style.animationDuration = (3 + Math.random() * 5) + 's';
+      const coin = document.createElement("div");
+      coin.className = "coin";
+      coin.style.left = Math.random() * 100 + "vw";
+      coin.style.animationDuration = (3 + Math.random() * 5) + "s";
       coin.style.opacity = (0.5 + Math.random() * 0.5);
       document.body.appendChild(coin);
     }
