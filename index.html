@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>DealMaker-Pepe – Coming Soon</title>
+  <title>DealMaker-Pepe – Live on Pump.fun</title>
   <style>
     body {
       margin: 0;
@@ -10,7 +10,7 @@
       color: #fff;
       background: #000;
       overflow-x: hidden;
-      overflow-y: hidden; /* 스크롤바 흔들림 방지 */
+      overflow-y: hidden;
     }
 
     /* 배경 */
@@ -42,12 +42,11 @@
       font-size: 22px;
       color: #ffd700;
       font-weight: bold;
-      text-shadow: 1px 1px 3px #000;
     }
     .navbar .menu {
       flex: 1;
       display: flex;
-      justify-content: center; /* 가운데 정렬 */
+      justify-content: center;
       gap: 30px;
     }
     .navbar .menu a {
@@ -58,16 +57,7 @@
     }
     .navbar .menu a:hover { color: #fff; }
 
-    /* 카운트다운 */
-    #countdown {
-      font-size: 28px;
-      color: #ffd700;
-      text-align: center;
-      margin: 20px 0;
-      text-shadow: 2px 2px 0 #000, 0 0 15px #ffec8b;
-    }
-
-    /* 히어로 */
+    /* Hero */
     .hero {
       display: flex;
       justify-content: center;
@@ -77,23 +67,20 @@
       padding: 40px 20px;
       gap: 50px;
     }
-
     .hero-text {
       flex: 1;
     }
     .hero-text h1 {
-      font-size: 64px;
+      font-size: 60px;
       color: #ffd700;
-      text-shadow: 3px 3px 0 #000, -3px -3px 0 #000, 0 0 25px #ffec8b;
+      text-shadow: 3px 3px 0 #000, 0 0 25px #ffec8b;
       margin-bottom: 20px;
     }
-    .hero-text h2 {
-      font-size: 28px;
-      color: #fff;
+    .hero-text p {
+      font-size: 20px;
+      line-height: 1.6;
       margin-bottom: 30px;
-      text-shadow: 1px 1px 0 #000;
     }
-
     .btn {
       background: linear-gradient(45deg, #ffd700, #ffae00);
       border: none;
@@ -104,22 +91,10 @@
       font-weight: bold;
       cursor: pointer;
       box-shadow: 0 0 15px rgba(255,215,0,0.8);
-      margin-bottom: 20px;
+      margin: 5px;
     }
     .btn:hover { transform: scale(1.05); }
 
-    .trust {
-      list-style: none;
-      padding: 0;
-    }
-    .trust li {
-      margin: 10px 0;
-      font-size: 18px;
-      color: #ffd700;
-      text-shadow: 1px 1px 0 #000;
-    }
-
-    /* 영상 */
     .video-box {
       flex: 1;
       text-align: right;
@@ -141,7 +116,7 @@
       margin: 30px 0;
     }
 
-    /* 코인 */
+    /* 코인 애니메이션 */
     .coin {
       position: absolute;
       top: -50px;
@@ -171,23 +146,20 @@
     </div>
   </div>
 
-  <!-- 카운트다운 -->
-  <div id="countdown">Launching Soon...</div>
-
-  <!-- 히어로 -->
+  <!-- Hero -->
   <div class="hero">
     <div class="hero-text">
-      <h1>COMING SOON</h1>
-      <h2>The Rise of DealMaker-Pepe</h2>
-      <a href="https://x.com/dealmakerpepe" target="_blank">
-        <button class="btn">Follow on Twitter</button>
-      </a>
-      <ul class="trust">
-        <li>✅ Audited by Trusted Partners</li>
-        <li>✅ Backed by Strong Community</li>
-        <li>✅ Fair Launch – No Presale</li>
-        <li>✅ 100% Transparency</li>
-      </ul>
+      <h1>🚀 DealMaker-Pepe is Live on Pump.fun!</h1>
+      <p>
+        The meme coin revolution has started.<br>
+        Backed by community. Fair launch. 100% transparent.<br>
+        Join the movement today.
+      </p>
+      <div>
+        <a href="" target="_blank"><button class="btn">Buy on Pump.fun</button></a>
+        <a href="" target="_blank"><button class="btn">Chart</button></a>
+        <a href="https://x.com/dealmakerpepe" target="_blank"><button class="btn">Twitter</button></a>
+      </div>
     </div>
     <div class="video-box">
       <video src="u6643972535_A_cartoon_character_of_Pepe_the_Frog_styled_as_a__7d76709d-ed3d-49c0-8c6d-d1faf38bea6c_0.mp4" autoplay loop muted></video>
@@ -198,22 +170,7 @@
   <footer>&copy; 2025 DealMaker-Pepe Project. All Rights Reserved.</footer>
 
   <script>
-    // 카운트다운
-    const targetDate = new Date("2025-9-20 00:00:00").getTime();
-    const countdownEl = document.getElementById("countdown");
-
-    setInterval(() => {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
-      if (distance < 0) { countdownEl.innerHTML = "Launched!"; return; }
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }, 1000);
-
-    // 코인 떨어뜨리기
+    // 코인 애니메이션
     const numCoins = 30;
     for (let i = 0; i < numCoins; i++) {
       const coin = document.createElement("div");
