@@ -2,70 +2,123 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>Coming Soon</title>
+  <title>MemeCoin – Coming Soon</title>
   <style>
     body {
       margin: 0;
-      background: #111;
+      background: #0a0a0a;
       color: #fff;
       font-family: "Press Start 2P", monospace;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       overflow: hidden;
     }
-
-    h1 {
-      font-size: 32px;
-      text-shadow: 2px 2px #ff0066, -2px -2px #00ffff;
+    /* 상단 메뉴 바 */
+    .navbar {
+      width: 100%;
+      background: #111;
+      padding: 12px 20px;
+      box-shadow: 0 2px 5px #000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+    }
+    .navbar .logo { font-size: 18px; }
+    .navbar .menu a {
+      margin-left: 16px;
+      color: #0ff;
+      text-decoration: none;
+      font-size: 12px;
+      text-shadow: 1px 1px #0f0;
+    }
+    /* 중앙 섹션 */
+    .hero {
+      text-align: center;
+      position: relative;
+      z-index: 10;
+      padding-top: 80px;
+    }
+    .hero h1 {
+      font-size: 48px;
+      text-shadow: 2px 2px #ff0066, -2px -2px #00ffff, 0 0 15px #00ffcc;
       animation: blink 1.2s infinite alternate;
     }
-
     @keyframes blink {
       from { opacity: 1; }
       to { opacity: 0.6; }
     }
-
     .pixel-box {
-      border: 4px solid #fff;
+      display: inline-block;
+      margin: 20px;
       padding: 12px;
-      margin: 20px 0;
-      image-rendering: pixelated;
       background: #000;
-      box-shadow: 0 0 20px #ff00ff;
-    }
-
-    img, video {
-      max-width: 320px;
-      height: auto;
-      display: block;
+      border: 4px solid #fff;
+      box-shadow: 0 0 20px rgba(0,255,255,0.7), 0 0 10px rgba(255,0,255,0.7);
       image-rendering: pixelated;
     }
-
+    .pixel-box img,
+    .pixel-box video {
+      max-width: 300px;
+      image-rendering: pixelated;
+    }
     footer {
       position: absolute;
-      bottom: 20px;
-      font-size: 12px;
-      opacity: 0.8;
+      bottom: 10px;
+      width: 100%;
+      font-size: 10px;
+      opacity: 0.7;
+      text-align: center;
+      z-index: 10;
+    }
+    /* 코인 떨어뜨리기 애니메이션 */
+    .coin {
+      position: absolute;
+      top: -40px;
+      width: 24px;
+      height: 24px;
+      background: url('https://i.ibb.co/VtZjSxv/pixel-coin.png') no-repeat center/contain;
+      animation: fall linear infinite;
+      opacity: 0.9;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-50px) rotate(0deg); }
+      100% { transform: translateY(110vh) rotate(360deg); }
     }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>COMING SOON...</h1>
-
-  <div class="pixel-box">
-    <img src="your-image.png" alt="Teaser Image">
+  <div class="navbar">
+    <div class="logo">MemeCoin</div>
+    <div class="menu">
+      <a href="#">Home</a>
+      <a href="#">Docs</a>
+      <a href="#">Community</a>
+    </div>
   </div>
 
-  <div class="pixel-box">
-    <video src="your-video.mp4" autoplay loop muted></video>
+  <div class="hero">
+    <h1>COMING SOON</h1>
+    <div class="pixel-box">
+      <img src="u6643972535_A_cartoon_character_of_Pepe_the_Frog_styled_as_a__8c73e6de-2022-4015-a2bd-788fb9b1b1b9_0.png" alt="Pepe Character">
+    </div>
+    <div class="pixel-box">
+      <video src="u6643972535_A_cartoon_character_of_Pepe_the_Frog_styled_as_a__7d76709d-ed3d-49c0-8c6d-d1faf38bea6c_0.mp4" autoplay loop muted></video>
+    </div>
   </div>
 
-  <footer>
-    &copy; 2025 Pepe Project. All Rights Reserved.
-  </footer>
+  <footer>&copy; 2025 MemeCoin Project</footer>
+
+  <script>
+    const numCoins = 30;
+    for (let i = 0; i < numCoins; i++) {
+      const coin = document.createElement('div');
+      coin.className = 'coin';
+      coin.style.left = Math.random() * 100 + 'vw';
+      coin.style.animationDuration = (3 + Math.random() * 5) + 's';
+      coin.style.opacity = (0.5 + Math.random() * 0.5);
+      document.body.appendChild(coin);
+    }
+  </script>
 </body>
 </html>
