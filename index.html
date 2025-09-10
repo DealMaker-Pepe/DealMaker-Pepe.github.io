@@ -25,33 +25,84 @@
     .overlay {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.4);
+      background: rgba(0,0,0,0.5);
       z-index: -1;
     }
 
-    /* 타이틀 */
-    h1 {
+    /* 네비게이션 */
+    .navbar {
+      width: 100%;
+      background: rgba(0,0,0,0.7);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+    }
+    .navbar .logo {
+      font-size: 22px;
+      color: #ffd700;
+      font-weight: bold;
+      text-shadow: 1px 1px 3px #000;
+    }
+    .navbar .menu a {
+      margin-left: 20px;
+      color: #ffd700;
+      text-decoration: none;
+      font-size: 14px;
+      text-shadow: 1px 1px 2px #000;
+      transition: 0.3s;
+    }
+    .navbar .menu a:hover { color: #fff; }
+
+    /* 히어로 */
+    .hero {
+      text-align: center;
+      margin-top: 60px;
+      position: relative;
+      z-index: 10;
+    }
+    .hero h1 {
       font-size: 60px;
       color: #ffd700;
-      text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 0 0 20px #ffec8b;
-      margin-top: 60px;
-      text-align: center;
+      text-shadow: 3px 3px 0 #000, -3px -3px 0 #000, 0 0 25px #ffec8b;
+      margin-bottom: 10px;
     }
-
-    /* 서브타이틀 */
-    h2 {
+    .hero h2 {
       font-size: 28px;
       color: #fff;
       text-shadow: 1px 1px 0 #000;
-      text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
+    }
+
+    /* 버튼 */
+    .buttons {
+      margin: 20px 0;
+    }
+    .btn {
+      background: linear-gradient(45deg, #ffd700, #ffae00);
+      border: none;
+      padding: 14px 28px;
+      margin: 10px;
+      border-radius: 8px;
+      font-size: 16px;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(255,215,0,0.8);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(255,215,0,1);
     }
 
     /* 영상 */
     .video-box {
       display: flex;
       justify-content: center;
-      margin-bottom: 30px;
+      margin: 30px 0;
     }
     .video-box video {
       max-width: 600px;
@@ -65,10 +116,11 @@
       font-size: 28px;
       color: #ffd700;
       text-align: center;
-      margin: 30px 0;
+      margin: 20px 0;
       text-shadow: 1px 1px 0 #000, 0 0 10px #ffec8b;
     }
 
+    /* 푸터 */
     footer {
       position: absolute;
       bottom: 20px;
@@ -79,15 +131,16 @@
       color: #ffec8b;
     }
 
-    /* 코인 애니메이션 */
+    /* CSS 코인 */
     .coin {
       position: absolute;
       top: -50px;
       width: 32px;
       height: 32px;
-      background: url('https://i.ibb.co/VtZjSxv/pixel-coin.png') no-repeat center/contain;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #fff, #ffd700 40%, #b8860b 90%);
+      box-shadow: 0 0 10px rgba(255,215,0,0.8);
       animation: fall linear infinite;
-      opacity: 0.9;
       z-index: 0;
     }
     @keyframes fall {
@@ -100,19 +153,41 @@
   <div class="background-img"></div>
   <div class="overlay"></div>
 
-  <h1>COMING SOON</h1>
-  <h2>DealMaker-Pepe</h2>
-
-  <div class="video-box">
-    <video src="u6643972535_A_cartoon_character_of_Pepe_the_Frog_styled_as_a__7d76709d-ed3d-49c0-8c6d-d1faf38bea6c_0.mp4" autoplay loop muted></video>
+  <!-- 네비게이션 -->
+  <div class="navbar">
+    <div class="logo">DealMaker-Pepe</div>
+    <div class="menu">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Tokenomics</a>
+      <a href="#">Community</a>
+    </div>
   </div>
 
-  <div id="countdown">Launching Soon...</div>
+  <!-- 메인 히어로 -->
+  <div class="hero">
+    <h1>COMING SOON</h1>
+    <h2>The Rise of DealMaker-Pepe</h2>
 
+    <div class="buttons">
+      <button class="btn">Join Telegram</button>
+      <button class="btn">View Whitepaper</button>
+      <button class="btn">Follow on Twitter</button>
+    </div>
+
+    <div class="video-box">
+      <video src="u6643972535_A_cartoon_character_of_Pepe_the_Frog_styled_as_a__7d76709d-ed3d-49c0-8c6d-d1faf38bea6c_0.mp4" autoplay loop muted></video>
+    </div>
+
+    <div id="countdown">Launching Soon...</div>
+  </div>
+
+  <!-- 푸터 -->
   <footer>&copy; 2025 DealMaker-Pepe Project. All Rights Reserved.</footer>
 
+  <!-- 코인 애니메이션 -->
   <script>
-    // 카운트다운 (목표 날짜 설정)
+    // 카운트다운 날짜 설정
     const targetDate = new Date("2025-12-31 00:00:00").getTime();
     const countdownEl = document.getElementById("countdown");
 
@@ -133,7 +208,7 @@
       countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
     }, 1000);
 
-    // 코인 애니메이션 생성
+    // 코인 떨어뜨리기
     const numCoins = 40;
     for (let i = 0; i < numCoins; i++) {
       const coin = document.createElement("div");
