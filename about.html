@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About – DealMaker-Pepe</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -17,6 +18,17 @@
       <a href="about.html">About</a>
       <a href="community.html">Community</a>
     </div>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <div class="menu-mobile" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="community.html">Community</a>
   </div>
 
   <!-- 컨텐츠 -->
@@ -36,5 +48,13 @@
 
   <!-- 코인 애니메이션 불러오기 -->
   <script src="coins.js"></script>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("mobileMenu");
+      const isOpen = menu.style.display === "flex";
+      menu.style.display = isOpen ? "none" : "flex";
+      document.body.style.overflow = isOpen ? "scroll" : "hidden";
+    }
+  </script>
 </body>
 </html>
