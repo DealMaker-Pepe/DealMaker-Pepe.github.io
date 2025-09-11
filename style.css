@@ -4,8 +4,47 @@ body {
   color: #fff;
   background: #000;
   overflow-x: hidden;
+  overflow-y: hidden;
 }
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;  /* 세로 배치 */
+    text-align: center;
+    gap: 20px;
+    padding: 20px;
+  }
 
+  .hero-text h1 {
+    font-size: 36px; /* 글자 크게 */
+  }
+
+  .hero-text p {
+    font-size: 16px;
+  }
+
+  .btn {
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    margin: 10px auto;
+  }
+
+  .video-box video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .navbar {
+    flex-direction: column; /* 모바일에서 메뉴 세로 정렬 */
+    gap: 10px;
+  }
+
+  .navbar .menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+}
 /* 배경 */
 .background-img {
   position: fixed;
@@ -27,8 +66,8 @@ body {
   background: rgba(0,0,0,0.7);
   padding: 15px 30px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  position: relative;
   z-index: 10;
 }
 .navbar .logo {
@@ -36,8 +75,13 @@ body {
   color: #ffd700;
   font-weight: bold;
 }
+.navbar .menu {
+  flex: 1;
+  display: flex;
+  justify-content: center; /* 가운데 정렬 */
+  gap: 30px;
+}
 .navbar .menu a {
-  margin-left: 20px;
   color: #ffd700;
   text-decoration: none;
   font-size: 14px;
