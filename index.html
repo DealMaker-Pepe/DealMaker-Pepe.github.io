@@ -31,24 +31,30 @@
 
     /* 네비게이션 */
     .navbar {
-      width: 100%;
-      background: rgba(0,0,0,0.7);
-      padding: 15px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: relative;
-      z-index: 10;
-    }
+	  width: 100%;
+	  background: rgba(0,0,0,0.7);
+	  padding: 15px 20px;
+	  display: flex;
+	  justify-content: space-between; /* 로고 왼쪽 / 햄버거 오른쪽 */
+	  align-items: center;
+	  position: relative;
+	  z-index: 10;
+	}
+
+
     .navbar .logo {
-      font-size: 22px;
-      color: #ffd700;
-      font-weight: bold;
-    }
+	  font-size: 22px;
+	  color: #ffd700;
+	  font-weight: bold;
+	}
+
     .navbar .menu {
-      display: flex;
-      gap: 30px;
-    }
+	  flex: 1;
+	  display: flex;
+	  justify-content: center;
+	  gap: 30px;
+	  min-width: 0; /* ✅ 메뉴가 넘쳐도 줄어들 수 있게 */
+	}
     .navbar .menu a {
       color: #ffd700;
       text-decoration: none;
@@ -59,16 +65,17 @@
 
     /* 햄버거 버튼 */
     .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 5px;
-    }
+	  display: none;
+	  flex-direction: column;
+	  cursor: pointer;
+	  gap: 5px;
+	  margin-left: auto;  /* ✅ 항상 오른쪽 끝 */
+	}
     .hamburger div {
-      width: 25px;
-      height: 3px;
-      background: #ffd700;
-    }
+	  width: 25px;
+	  height: 3px;
+	  background: #ffd700;
+	}
 
     /* 모바일 메뉴 (숨김) */
     .menu-mobile {
@@ -164,12 +171,12 @@
 
     /* 반응형 */
     @media (max-width: 768px) {
-      .navbar .menu {
-        display: none; /* 기본 메뉴 숨김 */
-      }
+       .navbar .menu {
+		display: none; /* 모바일에서는 메뉴 숨김 */
+	  }
       .hamburger {
-        display: flex;
-      }
+		display: flex; /* 햄버거 버튼만 오른쪽 끝 */
+	  }
       .hero {
         flex-direction: column;
         text-align: center;
@@ -212,7 +219,6 @@
   <div class="menu-mobile" id="mobileMenu">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a href="tokenomics.html">Tokenomics</a>
     <a href="community.html">Community</a>
   </div>
 
