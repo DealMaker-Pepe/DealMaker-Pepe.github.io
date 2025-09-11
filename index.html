@@ -5,16 +5,17 @@
   <title>DealMaker-Pepe – Live on Pump.fun</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
+    html, body {
       margin: 0;
-      font-family: "Arial Black", sans-serif;
-      color: #fff;
-      background: #000;
-      overflow-x: hidden;
-      overflow-y: hidden;
-    }
+	  padding: 0;
+	  font-family: "Arial Black", sans-serif;
+	  color: #fff;
+	  background: #000;
+	  overflow-x: hidden !important; /* ← 강제 적용 */
+	  overflow-y: scroll;
+	  height: 100%;
+	}
 
-    /* 배경 */
     .background-img {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -22,6 +23,7 @@
       filter: blur(25px) brightness(0.5);
       z-index: -2;
     }
+
     .overlay {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -29,66 +31,82 @@
       z-index: -1;
     }
 
-    /* 네비게이션 */
     .navbar {
-	  width: 100%;
-	  background: rgba(0,0,0,0.7);
-	  padding: 15px 20px;
-	  display: flex;
-	  justify-content: space-between; /* 로고 왼쪽 / 햄버거 오른쪽 */
-	  align-items: center;
-	  position: relative;
-	  z-index: 10;
-	}
-
+      width: 100%;
+      background: rgba(0,0,0,0.7);
+      height: 64px;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
 
     .navbar .logo {
-	  font-size: 22px;
-	  color: #ffd700;
-	  font-weight: bold;
-	}
+      font-size: 22px;
+      color: #ffd700;
+      font-weight: bold;
+    }
 
     .navbar .menu {
-	  flex: 1;
-	  display: flex;
-	  justify-content: center;
-	  gap: 30px;
-	  min-width: 0; /* ✅ 메뉴가 넘쳐도 줄어들 수 있게 */
-	}
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      min-width: 0;
+    }
+
     .navbar .menu a {
       color: #ffd700;
       text-decoration: none;
       font-size: 14px;
       transition: 0.3s;
     }
-    .navbar .menu a:hover { color: #fff; }
 
-    /* 햄버거 버튼 */
+    .navbar .menu a:hover {
+      color: #fff;
+    }
+
     .hamburger {
-	  display: none;
+	  display: flex;
 	  flex-direction: column;
 	  cursor: pointer;
 	  gap: 5px;
-	  margin-left: auto;  /* ✅ 항상 오른쪽 끝 */
-	}
-    .hamburger div {
-	  width: 25px;
-	  height: 3px;
-	  background: #ffd700;
+	  position: fixed;
+	  top: 16px;
+	  right: 16px;         /* ← 💡 오른쪽 고정 */
+	  left: auto !important;
+	  z-index: 2000 !important; /* 항상 최상단 */
+	  padding: 12px;
+	  background: rgba(0, 0, 0, 0.6);
+	  border-radius: 8px;
 	}
 
-    /* 모바일 메뉴 (숨김) */
-    .menu-mobile {
-      display: none;
-      flex-direction: column;
-      background: rgba(0,0,0,0.9);
-      position: absolute;
-      top: 60px;
-      left: 0;
-      width: 100%;
-      padding: 20px;
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: #ffd700;
     }
+
+    .menu-mobile {
+	  display: none;
+	  flex-direction: column;
+	  background: rgba(0,0,0,0.95);
+	  position: fixed;
+	  top: 0;
+	  left: 0;
+	  right: 0;
+	  bottom: 0;
+	  padding-top: 80px;
+	  padding-bottom: 20px;
+	  z-index: 999;
+	}
+
     .menu-mobile a {
+      margin-top: 64px;
       color: #ffd700;
       text-decoration: none;
       font-size: 18px;
@@ -96,30 +114,33 @@
       text-align: center;
     }
 
-    /* Hero */
     .hero {
       display: flex;
       justify-content: center;
       align-items: center;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 40px 20px;
+      padding: 120px 20px 100px;
       gap: 50px;
     }
+
     .hero-text {
       flex: 1;
     }
+
     .hero-text h1 {
       font-size: 60px;
       color: #ffd700;
       text-shadow: 3px 3px 0 #000, 0 0 25px #ffec8b;
       margin-bottom: 20px;
     }
+
     .hero-text p {
       font-size: 20px;
       line-height: 1.6;
       margin-bottom: 30px;
     }
+
     .btn {
       background: linear-gradient(45deg, #ffd700, #ffae00);
       border: none;
@@ -132,12 +153,16 @@
       box-shadow: 0 0 15px rgba(255,215,0,0.8);
       margin: 5px;
     }
-    .btn:hover { transform: scale(1.05); }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
 
     .video-box {
       flex: 1;
       text-align: right;
     }
+
     .video-box video {
       max-width: 450px;
       border: 6px solid #ffd700;
@@ -146,7 +171,6 @@
       transform: scaleX(-1);
     }
 
-    /* 푸터 */
     footer {
       text-align: center;
       font-size: 14px;
@@ -155,7 +179,6 @@
       margin: 30px 0;
     }
 
-    /* 코인 애니메이션 */
     .coin {
       position: absolute;
       top: -50px;
@@ -163,26 +186,31 @@
       height: 40px;
       background: url('vecteezy_3d-gold-coin-no-background_32161163.png') no-repeat center/contain;
       animation: fall linear infinite;
+      z-index: 1;
     }
+
     @keyframes fall {
       0% { transform: translateY(-50px) rotate(0deg); }
       100% { transform: translateY(110vh) rotate(360deg); }
     }
 
-    /* 반응형 */
     @media (max-width: 768px) {
-       .navbar .menu {
-		display: none; /* 모바일에서는 메뉴 숨김 */
-	  }
+      .navbar .menu {
+        display: none;
+      }
       .hamburger {
-		display: flex; /* 햄버거 버튼만 오른쪽 끝 */
-	  }
+        display: flex;
+      }
       .hero {
         flex-direction: column;
         text-align: center;
       }
-      .hero-text h1 { font-size: 36px; }
-      .hero-text p { font-size: 16px; }
+      .hero-text h1 {
+        font-size: 36px;
+      }
+      .hero-text p {
+        font-size: 16px;
+      }
       .btn {
         display: block;
         width: 100%;
@@ -200,7 +228,6 @@
   <div class="background-img"></div>
   <div class="overlay"></div>
 
-  <!-- 네비게이션 -->
   <div class="navbar">
     <div class="logo">DealMaker-Pepe</div>
     <div class="menu">
@@ -208,21 +235,19 @@
       <a href="about.html">About</a>
       <a href="community.html">Community</a>
     </div>
-    <div class="hamburger" onclick="toggleMenu()">
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
       <div></div>
       <div></div>
       <div></div>
     </div>
   </div>
 
-  <!-- 모바일 메뉴 -->
   <div class="menu-mobile" id="mobileMenu">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="community.html">Community</a>
   </div>
 
-  <!-- Hero -->
   <div class="hero">
     <div class="hero-text">
       <h1>🚀 DealMaker-Pepe is Live on Pump.fun!</h1>
@@ -232,8 +257,8 @@
         Join the movement today.
       </p>
       <div>
-        <a href="" target="_blank"><button class="btn">Buy on Pump.fun</button></a>
-        <a href="" target="_blank"><button class="btn">Chart</button></a>
+        <a href="https://pump.fun/coin/FdK7FQP4wt9KuLYw7s89eVvykQSsHNiGwSLq3ydZoYpPpump" target="_blank"><button class="btn">Buy on Pump.fun</button></a>
+        <a href="https://pump.fun/coin/FdK7FQP4wt9KuLYw7s89eVvykQSsHNiGwSLq3ydZoYpPpump" target="_blank"><button class="btn">Chart</button></a>
         <a href="https://x.com/dealmakerpepe" target="_blank"><button class="btn">Twitter</button></a>
       </div>
     </div>
@@ -242,17 +267,20 @@
     </div>
   </div>
 
-  <!-- 푸터 -->
   <footer>&copy; 2025 DealMaker-Pepe Project. All Rights Reserved.</footer>
 
   <script>
-    // 모바일 메뉴 토글
     function toggleMenu() {
-      const menu = document.getElementById("mobileMenu");
-      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
-    }
+	  const menu = document.getElementById("mobileMenu");
+	  const isOpen = menu.style.display === "flex";
 
-    // 코인 애니메이션
+	  menu.style.display = isOpen ? "none" : "flex";
+
+	  // 💡 body overflow 조절해서 전체 밀림 방지
+	  document.body.style.overflow = isOpen ? "scroll" : "hidden";
+	}
+
+
     const numCoins = 30;
     for (let i = 0; i < numCoins; i++) {
       const coin = document.createElement("div");
