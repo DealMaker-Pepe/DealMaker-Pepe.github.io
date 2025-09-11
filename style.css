@@ -6,45 +6,7 @@ body {
   overflow-x: hidden;
   overflow-y: hidden;
 }
-@media (max-width: 768px) {
-  .hero {
-    flex-direction: column;  /* 세로 배치 */
-    text-align: center;
-    gap: 20px;
-    padding: 20px;
-  }
 
-  .hero-text h1 {
-    font-size: 36px; /* 글자 크게 */
-  }
-
-  .hero-text p {
-    font-size: 16px;
-  }
-
-  .btn {
-    display: block;
-    width: 100%;
-    max-width: 250px;
-    margin: 10px auto;
-  }
-
-  .video-box video {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .navbar {
-    flex-direction: column; /* 모바일에서 메뉴 세로 정렬 */
-    gap: 10px;
-  }
-
-  .navbar .menu {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-  }
-}
 /* 배경 */
 .background-img {
   position: fixed;
@@ -69,6 +31,7 @@ body {
   align-items: center;
   position: relative;
   z-index: 10;
+  justify-content: space-between;
 }
 .navbar .logo {
   font-size: 22px;
@@ -78,7 +41,7 @@ body {
 .navbar .menu {
   flex: 1;
   display: flex;
-  justify-content: center; /* 가운데 정렬 */
+  justify-content: center;
   gap: 30px;
 }
 .navbar .menu a {
@@ -88,6 +51,46 @@ body {
   transition: 0.3s;
 }
 .navbar .menu a:hover { color: #fff; }
+
+/* 햄버거 */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 2000;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+}
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background: #ffd700;
+}
+
+/* 모바일 메뉴 */
+.menu-mobile {
+  display: none;
+  flex-direction: column;
+  background: rgba(0,0,0,0.95);
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  padding-top: 80px;
+  padding-bottom: 20px;
+  z-index: 999;
+}
+.menu-mobile a {
+  margin-top: 64px;
+  color: #ffd700;
+  text-decoration: none;
+  font-size: 18px;
+  margin: 10px 0;
+  text-align: center;
+}
 
 /* 컨텐츠 */
 .content {
@@ -121,7 +124,7 @@ footer {
   margin: 30px 0;
 }
 
-/* 코인 */
+/* 코인 애니메이션 */
 .coin {
   position: absolute;
   top: -50px;
@@ -133,4 +136,36 @@ footer {
 @keyframes fall {
   0% { transform: translateY(-50px) rotate(0deg); }
   100% { transform: translateY(110vh) rotate(360deg); }
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+  .navbar .menu {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    padding: 20px;
+  }
+  .hero-text h1 {
+    font-size: 36px;
+  }
+  .hero-text p {
+    font-size: 16px;
+  }
+  .btn {
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    margin: 10px auto;
+  }
+  .video-box video {
+    max-width: 100%;
+    height: auto;
+  }
 }
